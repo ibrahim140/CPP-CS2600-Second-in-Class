@@ -124,7 +124,7 @@ void main()
     }
 
     // simulating a Lo Shu Square using predefined array
-    int secondArray[3][3] = {{4, 9, 2}, {3, 5, 7}, {8, 1, 6}};      // is a lo shu square
+    int secondArray[3][3] = {{2, 9, 4}, {7, 5, 3}, {6, 1, 8}};      // is a lo shu square
     // print second array
     printArray(secondArray);
     // check if the second array is a lo shu square
@@ -137,12 +137,12 @@ void main()
         printf("This is NOT a Lo Shu Square.\n");
     }
 
-
-    // iterate through infinitely (any non-zero value can be used here)
-    while(-1)
+    // iterate through until the break condition has been met 
+    // using any non-zero value as a condition can allow an infinite loop
+    while(4)
     {
         // create a temporary array (MUST bebe inside the infinite while loop)
-        int tempArray[10] = {2, };
+        int tempArray[10] = {2};
         // get new seed for random number each time
         srand(time(0) + counter);
         // iterate through each rows
@@ -151,7 +151,7 @@ void main()
             // iterate through each column
             for(int column = 0; column <= 2; column++)
             {
-                // loop through as long as the condition is true
+                // loop through as long as the # returned by tempArray[randomNumber] is not 0
                 while(tempArray[randomNumber])
                 {
                     // store a random value from 1 to 9 in variable
@@ -160,7 +160,7 @@ void main()
                 // populate 2D array with random values from to 1 to 9 (w/o repetition)
                 loShuSquare[row][column] = randomNumber;
                 // assign an integer value to the index specifed by the random value in the tempArray
-                tempArray[randomNumber] = 10;
+                tempArray[randomNumber] = 4;
             }
         }
 
@@ -177,6 +177,7 @@ void main()
 
     // let the user know how many times it took to get a Lo Shu Square
     printf("\nNumber of attempts required for a Lo Shu Square to be generated randomly is: %d\n", counter);
-
+    printf("The following is the Lo Shu Square:\n");
+    // print the 2D array
     printArray(loShuSquare);
 }
