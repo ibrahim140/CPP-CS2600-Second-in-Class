@@ -151,8 +151,8 @@ void main()
             // iterate through each column
             for(int column = 0; column <= 2; column++)
             {
-                // loop through as long as the # returned by tempArray[randomNumber] is not 0
-                while(tempArray[randomNumber])
+                // the condition returns a value from the tempArray and goes into the loop
+                while(tempArray[randomNumber])                  //ex: if tempArray[randomNumber] = 3, then the while loop body will execute
                 {
                     // store a random value from 1 to 9 in variable
                     randomNumber = (rand() % 9) + 1;
@@ -160,7 +160,7 @@ void main()
                 // populate 2D array with random values from to 1 to 9 (w/o repetition)
                 loShuSquare[row][column] = randomNumber;
                 // assign an integer value to the index specifed by the random value in the tempArray
-                tempArray[randomNumber] = 4;
+                tempArray[randomNumber] = 4;                    // this is used by the condition in the while loop above
             }
         }
 
